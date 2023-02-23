@@ -60,7 +60,7 @@ This program was designed to implement the Minotaur's Crystal Vase Strategy #2, 
 
 My winning strategy was to make the first guest be responsible for counting how many guests entered the labyrinth. For this, this guest is the only one that can ask the Minotaur to serve a cupcake in order to know how many guests have already entered the labyrinth. Also, this guest is allowed to eat the cupcake only 1 time.
 
-Whenever other guests other than the counting one enters the labyrinth and there is no cupcake served, they do nothing. If they entered the labyrinth and the cupcake is served, they only eat it if they did not eat any cupcakes before (guests can only eat 1 cupcake).
+Note that the guests are randomly chosen to fo into the labyrinth. Whenever other guests other than the counting one enters the labyrinth and there is no cupcake served, they do nothing. If they entered the labyrinth and the cupcake is served, they only eat it if they did not eat any cupcakes before (guests can only eat 1 cupcake).
 
 After the counting guest counter has reached the total number of guests, the counting guest know that every guest visited the labyrinth at least once.
 
@@ -71,6 +71,8 @@ After the counting guest counter has reached the total number of guests, the cou
 My implementation is Strategy #2 of Minotaur's Crystal Vase. It simply allows the guests to check the sign on the door and see if the showroom is "BUSY" or "AVAILABLE".
 
 If available, the guest goes see the vase and he gets added to a chosenGuest list so that he does not go see the vase more than once. If the room is not available, the guest does not bother on going inside the room.
+
+This makes the code efficient too since we are not allowing guests to see the vase more than once.
 
 In comparison with the other strategies, here are some of the advantages and disadvantages:
 
