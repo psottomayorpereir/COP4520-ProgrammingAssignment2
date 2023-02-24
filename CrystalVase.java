@@ -15,29 +15,27 @@ public class CrystalVase{
     //keep track of guests in the labyrinth and if the cupcake is served
     static int THREADS = 0;
     static int GUESTS = 0;
+    static int count = 0;
     static NavigableSet<Integer> chosenGuests = new TreeSet<Integer>();
     static Boolean roomAvailable = Boolean.FALSE;
     static Random random = new Random();
     static Lock lock = new ReentrantLock();
 
-    //check if the room is available before entering
-    public synchronized static Boolean roomAvailableOrNot (){
-        return roomAvailable;
-    }
-
     //guest will see the vase
     public static void seeVase (int index){
         //make sure the room is available before entering
-        while(!roomAvailableOrNot()) continue;
-        lock.lock();
+        //if not, simply keep trying
+        while(!chosenGuests.contains(index)){
         try
         {
             //go see the vase
+            lock.lock();
             if(roomAvailable == Boolean.TRUE && !chosenGuests.contains(index)){
                 roomAvailable = Boolean.FALSE;
                 chosenGuests.add(index);
                 Thread.sleep(random.nextInt(1));
                 roomAvailable = Boolean.TRUE;
+                count++;
                 System.out.println("Guest #" + index + " looked at the vase");
             }
         }
@@ -48,6 +46,7 @@ public class CrystalVase{
         finally
         {
             lock.unlock();
+        }
         }
     }
 
@@ -75,7 +74,7 @@ public class CrystalVase{
         //get end time and calculate the time taken (end - start)
         long endTime = System.currentTimeMillis();
         long timeTaken = (endTime - startTime);
-        System.out.println('\n' + "All " + chosenGuests.size() + " guests looked at the vase");
+        System.out.println('\n' + "All " + count + " guests looked at the vase");
         System.out.println('\n' + "Time taken: " + timeTaken + "ms");
 
     }

@@ -68,11 +68,11 @@ After the counting guest counter has reached the total number of guests, the cou
 
 **Crystal Vase**:
 
-My implementation is Strategy #2 of Minotaur's Crystal Vase. It simply allows the guests to check the sign on the door and see if the showroom is "BUSY" or "AVAILABLE".
+My implementation is Strategy #2 of Minotaur's Crystal Vase. It simply allows the guests to check the sign on the door and see if the showroom is "BUSY" or "AVAILABLE" by testing if the lock is available or not.
 
-If available, the guest goes see the vase and he gets added to a chosenGuest list so that he does not go see the vase more than once. If the room is not available, the guest does not bother on going inside the room.
+If available, the guest goes see the vase and he gets added to a chosenGuest list so that he does not go see the vase more than once. If the room is not available, the guest does not bother on going inside the room and keep waiting until it is available.
 
-This makes the code efficient too since we are not allowing guests to see the vase more than once.
+The code is also efficient since we are not allowing guests to see the vase more than once.
 
 In comparison with the other strategies, here are some of the advantages and disadvantages:
 
