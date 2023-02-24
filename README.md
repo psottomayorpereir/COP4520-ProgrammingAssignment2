@@ -1,4 +1,4 @@
-# COP4520 - Programming Assignment 1
+# COP4520 - Programming Assignment 2
 
 ### _This program was written by: Pedro Henrique Sotto-Mayor Pereira da Silva_
 
